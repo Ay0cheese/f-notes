@@ -1,0 +1,134 @@
+#!markdown
+
+# F# program structure
+
+#!markdown
+
+F# functions work like data types. You can *declare* and use a function in the same way as any other variable.
+
+
+In F# the compiler executes all top-level statements in the file from top to bottom.
+
+However, to follow the procedural programming style many applications keep a single top level statement that calls the main loop.
+
+
+Ex: Simple F# program
+
+#!fsharp
+
+open System
+(* this comments out multiline comments *)
+// this is for single line. 
+
+let sign num = 
+    if num > 0 then "positive"
+    elif num < 0 then "negative"
+    else "zero"
+
+let main() = 
+    Console.WriteLine("sign 5: {0}", (sign -1))
+
+main()
+
+#!markdown
+
+NOTES:
+
+1: An F# code may start with a number of *open* statements that is used to import namespaces
+
+2: The body of the files include other functions that implement the business's logic of the application
+
+3: The main loop contains the top executable statements
+
+#!markdown
+
+## Tokens in F#
+
+#!markdown
+
+F# consists of various tokens. A token could be a keyword, an **identifier**, a **constant**, a **string literal**, or a **symbol**.
+
+Two types of F# tokens
+
+1: Keywords
+
+2: Symbols and Operators
+
+Here is a table of useful keywords:
+
+#!markdown
+
+| Keyword | Description |
+| ----------- | ----------- |
+| abstract | indications a method that either has no implementation in the type in which it is declared or that is virtual and has a default implementation |
+| and | used in mutually recursive bindings, in property declarations, and with multiple constraints on generic parameters |
+| as | Used to give the current class object an object name. Also used to give a name to a whole pattern within a pattern match |
+| assert | Used to verify code during debugging |
+| base | used as the name of the base class object |
+| begin | in verbose syntax, indicates the start of a code block |
+| class | In verbose syntax, indicates the start of a class definition |
+| default | Indicates an implementation of an abstract method; used together with an abstract method declaration to create a virtual method |
+| delegate | used to declare a delegate |
+| do | Used in looping constructs or to execute imperative code |
+| done | In verbose syntax, indi |
+| downcast | Used to convert to a type that is lower in the inheritance chain |
+| downto | in a **for** expression, used when counting in reverse |
+| elif | used in conditional branching. a short form of else if |
+| else | used in conditional branching |
+| end | in type definitions and type extension, indicates the end of a section of member definitions |
+| exception | Used to declare an exception type |
+| extern | indicated that a declared program element is defined in another binary or assembly |
+| false | used as a boolean literal |
+| finally | used together with try to introduce a block of code that executes regardless of whether an exception occurs |
+| for | used in looping constructs |
+| fun | used in lambda expressions, also known as anonymous functions |
+| function | used as a shorter alternative to the fun keyword and a match expression in a lambda expression that has pattern matching on a single argument |
+| global | used to reference the top-level .NET namespace |
+| if | Used in conditional branching constructs |
+| in | used for sequence expressions and, in verbose syntax, to separate expressions from bindings |
+| inherit | used to specify a base class or base interface |
+| inline | used to indicate a function that should be integrated directly into the caller's code |
+| Interface | used to declare and implement interfaces |
+| internal | used to specify that a member is visible inside an assembly but not outside it.  |
+| lazy | used to specify a computation that is to be preformed only when a result is needed |
+| let | used to associate, or bind, a name to a value or function |
+| let! | used in asynchronous workflows to bind a name to the result of an asynchronous computation expressions, used to bind a name to a result, which is of the computation type. |
+| match | used to branch by comparing a value to a pattern |
+| member | used to declare a property or method in an object type |
+| Module | used to associate a name with a group of related types, values, and functions, to logically separate it form another code |
+| mutable | used to declare a variable, that is, a value that can be changed |
+| namespace | used to associate a name with a group of related types and modules, to logically separate it from other code. |
+| new | used to declare, define, or invoke a constructor that creates or that can create an object. Also used in generic parameter constraints to indicate that a type must have a certain constructor |
+| not | not actually a *keyword*. However, not struct in combination is used as a generic parameter constraint |
+| null | Indicates the absence of an object. Also used in generic parameter constraints |
+| of | Used in discriminated unions to indicate the type of categories of values, and in delegate and exception declarations |
+| open | used to make the contents of a namespace or module available without qualification |
+| or | used with Boolean conditions as a Boolean or operator. Equivalent to ||. Also used in member constraints |
+| override | used to implement a version of an abstract or virtual method that differs from the base version |
+| private | Restricts access to a member to code in the same type or module |
+| public | Restricts access to a member to code in the same type or module |
+| rec | used to indicate that a function is recursive |
+| return | Used to indicate a value to provide as the result of a computation expression |
+| return! | used to indicate a computation expression that, when evaluated, provides the result of the containing computation expression |
+| select | used in query expressions to specify what fields or columns to extract. Note that this is a contextual keyword, which means that it is not actually a reserved work and it only acts like a keyword in appropriate context |
+| static | used to indicate a method or property that can be called without an instance of a type, or a value member that is shared among all instances of a type. |
+| struct | used to declare a structure type. Also used in generic parameter constraints. Used for OCami compatibility in module definitions |
+| then | used in conditional expression Also used to preform side effects after object construction |
+| to | used in for loops to indicate rance |
+| true | used as a boolean literal |
+| try | used to introduce a block of code that might generate an exception, used together with *with or finally* |
+| type | used to declare a class, record, structure, discriminated union, enumeration type, unit of measure, or type abbreviation. |
+| upcast | used to convert a type that is higher in the inheritance chain |
+| use | used instead of let for valies that requier DESPOSE to be called to free resournces. |
+| use! | used instead of let! in asynchronous workflows and other computation expressions for calues that requie despose to be called t free resource. |
+| val | Used in a signature to indicate a value, or in a type to declare a member, in limited situations. |
+| void | indicates the .NET languages |
+| when | Used for Boolean conditions (when guards) on a pattern matches and to introduce a constraint clause for a generic type parameter |
+| while | introduces a looping constructs |
+| with | Used together with the match keyword in pattern matching expressions. Also used in object expressions, record copying expressions, and type extensions to introduce member definitions, and to introduce exception handlers |
+| yield | used in a sequence expression to produce a value for a sequence |
+| yield! | Used in a computation expression to append the result of a given computation expression to a collection for results for the containing computation expression |
+
+#!markdown
+
+## Verbose Syntax vs Lightweight Syntax
